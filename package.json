@@ -9,8 +9,11 @@
   "author": "Aiden Montgomery",
   "license": "ISC",
   "dependencies": {
+    "bluebird": "^2.3.5",
+    "chai": "^1.9.2",
     "express": "^4.9.5",
     "jade": "^1.7.0",
+    "mocha": "^1.21.4",
     "mongoose": "^3.8.17"
   },
   "devDependencies": {
