@@ -1,9 +1,7 @@
 var should = require('chai').should();
-
 var mongoose = require('mongoose');
-var jobModel = require('../models/Job');
 var Promise = require('bluebird');
-var jobsData = require('../jobs-data.js');
+var jobsData = require('../../jobs-data.js');
 
 function resetJobs() {
   return new Promise(function (resolve, reject) {
@@ -26,6 +24,10 @@ describe('get jobs', function () {
     });
   });
 
+  after(function () {
+    mongoose.connection.close();
+  });
+
   it('should never be empty since jobs are seeded', function () {
       jobs.should.not.be.empty;
   });
@@ -36,5 +38,38 @@ describe('get jobs', function () {
 
   it("should have a job with a description", function () {
     jobs[0].description.should.not.be.empty;
+  });
+});
+
+
+describe('save job', function () {
+
+  var jobs;
+
+  before(function (done) {
+    jobsData.connectDB('mongodb://localhost/jobfinder')
+    .then(resetJobs)
+    .then(jobsData.findJobs)
+    .then(function (collection) {
+      jobs = collection;
+      done();
+    });
+  });
+
+  after(function () {
+    mongoose.connection.close();
+  });
+
+  var job = {title: 'testing', description: 'testing description'};
+
+  it('should save the job in the database', function (done) {
+    var originalCount;
+    originalCount = jobs.length;
+
+    jobsData.saveJob(job)
+    .then(jobsData.findJobs).then(function (collection) {
+      collection.should.length.above(originalCount);
+      done();
+    });
   });
 });
