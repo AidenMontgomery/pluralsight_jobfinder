@@ -1,0 +1,22 @@
+{
+  "name": "jobfinder",
+  "version": "0.0.0",
+  "authors": [
+    "Aiden Montgomery <aiden@constructivecoding.com>"
+  ],
+  "description": "Job finding app",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "angular": "~1.2.26",
+    "bootstrap": "~3.2.0"
+  }
+}

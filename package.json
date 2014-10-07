@@ -1,0 +1,18 @@
+{
+  "name": "jobfinder",
+  "version": "0.0.0",
+  "description": "Job Finder Application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Aiden Montgomery",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.9.5",
+    "jade": "^1.7.0"
+  },
+  "devDependencies": {
+    "bower": "^1.3.12"
+  }
+}
