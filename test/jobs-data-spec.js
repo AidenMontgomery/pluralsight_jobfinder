@@ -16,7 +16,7 @@ describe('get jobs', function () {
   var jobs;
 
   before(function (done) {
-    jobsData.connectDB('mongodb://localhost/jobfinder')
+    jobsData.connectDB('mongodb://localhost-fail/jobfinder')
     .then(resetJobs)
     .then(jobsData.seedJobs)
     .then(jobsData.findJobs)
